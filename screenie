@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# screenie - capture a screenshot and use elixiremanager to send to
+# elixi.re. uses flameshot as a drop-in replacement for kshare's "editing
+# before sending" mechanic
+
+# based off lynnesbian's sshotr.sh,
+# https://gist.github.com/Lynnesbian/203e2a90a312cd02880f8e5762c01797
+
+# this:
+#  - uses ~/Screenshots as a folder to store them all
+#  - requires notify-send, elixiremanager.sh requires it as well, so.
+#  - uses flameshot, more @ https://github.com/lupoDharkael/flameshot
+#    - NOTE: press enter after doing a screenshot, instead of saving, for all
+#      of this to work
+
+# change this if wanted
+screenshot_folder="$HOME/Screenshots"
+
+# set this to the path for elixiremanager.sh
+elixiremanager="$HOME/bin/elixiremanager.sh"
+
+mkdir -p "$screenshot_folder"
+date_str=$(date +'%Y-%m-%d-%H_%M_%S')
+target="$screenshot_folder/screenie-$date_str.png"
+
+flameshot gui -r > "$target"
+
+# flameshot just writes that as raw text on the target so its
+# very easy to detect
+if grep 'screenshot aborted' "$target"; then
+    notify-send "screenshot aborted, skipping sending"
+else
+    notify-send "screenie: sending: $target"
+    $elixiremanager "$target"
+fi
