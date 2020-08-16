@@ -43,13 +43,17 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use "amixer" to toggle volume using volume buttons (in my case, Fn+Up/Fn+Down)
-bindsym Control+$mod2+equal exec "amixer -q sset Master,0 1+ unmute"
-bindsym Control+$mod2+minus exec "amixer -q sset Master,0 1- unmute"
-bindsym Control+$mod2+backslash exec "amixer -q sset Master,0 toggle"
+#bindsym Control+$mod2+equal exec "amixer -q sset Master,0 1+ unmute"
+#bindsym Control+$mod2+minus exec "amixer -q sset Master,0 1- unmute"
+#bindsym Control+$mod2+backslash exec "amixer -q sset Master,0 toggle"
 
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+#bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
