@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# terminate all running dunst instances
+killall -q dunst
+
+# run it again
+dunst

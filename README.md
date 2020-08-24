@@ -11,4 +11,4 @@ Dotfiles for my Arch Linux setup, using i3-gaps.
 ## Screenshots
 ![Screenshot](https://circ.x3.pm/i/fq5u.png)
 ![Screenshot 2](https://circ.x3.pm/i/kvyt.png)
-
+![Screenshot 3](https://circ.x3.pm/i/8mam.png)

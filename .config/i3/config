@@ -28,9 +28,6 @@ smart_gaps on
 gaps inner 10
 gaps outer 10
 
-
-
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -43,24 +40,25 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use "amixer" to toggle volume using volume buttons (in my case, Fn+Up/Fn+Down)
-#bindsym Control+$mod2+equal exec "amixer -q sset Master,0 1+ unmute"
-#bindsym Control+$mod2+minus exec "amixer -q sset Master,0 1- unmute"
-#bindsym Control+$mod2+backslash exec "amixer -q sset Master,0 toggle"
-
-#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-#bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
-
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
 bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 
+# Use "xblacklight" to toggle backlight using hardware backlight buttons (in my case Fn+Left/Fn+Right)
+bindsym XF86MonBrightnessUp exec xbacklight -ctrl intel_backlight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -ctrl intel_backlight -dec 5
+
+# Disable floating windows
+for_window [class=".*"] floating disable
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite -e /usr/bin/zsh
+
+# take a screenshot
+bindsym Control+Print exec ~/screenie
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,6 +191,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Run polybar on startup
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-
+# Run dunst on startup
+exec_always --no-startup-id $HOME/.config/dunst/launch
