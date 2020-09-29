@@ -43,4 +43,5 @@ GNU GPL 3.0.
     
 ## Special Thanks
 **[adi1090x/polybar-themes](https://github.com/adi1090x/polybar-themes)** - Using a modified `polybar-1` theme from this repository.
+
 **[Oxylibrium](https://github.com/oxy)** - For making me stick to tiling window managers.
