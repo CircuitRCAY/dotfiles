@@ -19,7 +19,8 @@ Become one with the Arch users and do it manually.
 Install [Fisher](https://github.com/jorgebucaran/fisher), and [Lumin](https://github.com./ovyerus/lumin).
 
 ## Screenshots
-![Neofetch](https://circ.x3.pm/i/87gh.png)
+
+![Neofetch](https://circ.x3.pm/i/87gh.png "Neofetch Screenshot")
 
 ### License
 GNU GPL 3.0.
