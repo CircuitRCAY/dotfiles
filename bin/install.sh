@@ -2,6 +2,7 @@
 function check_distro {
     if [ -f /etc/arch-release ]; then
         check_for_yay
+        wal
         polybar
         i3
         dunst
@@ -24,8 +25,10 @@ function check_for_yay {
 function wal {
   echo -e "\e[92mINFO\e[0m Installing pywal with \e[1mpip\e[21m"
   sudo pip3 install wal --quiet
-  wal -e ./wallpapers/warburton.jpg
-  echo -e "\e[92mINFO\e[0m Finished installing pywal, and set wallpaper!"
+  #wal -e ./wallpapers/warburton.jpg
+  wget https://raw.githubusercontent.com/dylanaraps/pywal/master/pywal/colorschemes/dark/gruvbox.json -O /tmp/gruvbox.json
+  wal --theme /tmp/gruvbox.json
+  echo -e "\e[92mINFO\e[0m Finished installing pywal, and set theme!"
 }
 
 function polybar {

@@ -19,7 +19,7 @@ Become one with the Arch users and do it manually.
 Install [Fisher](https://github.com/jorgebucaran/fisher), and [Lumin](https://github.com./ovyerus/lumin).
 
 ## Screenshots
-[coming soon]
+![Neofetch](https://circ.x3.pm/i/87gh.png)
 
 ### License
 GNU GPL 3.0.
