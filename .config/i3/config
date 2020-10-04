@@ -36,6 +36,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # Start polybar
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Start picom
+exec_always --no-startup-id picom
+
+
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -47,6 +51,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Use keyboard shortcuts to set brightness
+bindsym XF86MonBrightnessUp exec xbacklight -ctrl intel_backlight -inc 15
+bindsym XF86MonBrightnessDown exec xbacklight -ctrl intel_backlight -dec 15
+
+# Use powerbutton with polybar powermenu
+bindsym XF86PowerOff exec --no-startup-id $HOME/.config/polybar/scripts/sysmenu
 
 # Take screenshots with Ctrl+PrtSc
 bindsym Control+Print exec ~/bin/elixiremanager.sh
