@@ -1,5 +1,5 @@
 # Dotfiles
-This is the revival of the i3-gaps dotfiles provided by CircuitRCAY. 
+This was the revival of the i3-gaps dotfiles provided by CircuitRCAY. No longer maintained. 
 
 ## Specs
 - Acer Aspire V15 Nitro (Black Edition)

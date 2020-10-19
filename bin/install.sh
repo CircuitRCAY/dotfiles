@@ -26,8 +26,8 @@ function wal {
   echo -e "\e[92mINFO\e[0m Installing pywal with \e[1mpip\e[21m"
   sudo pip3 install wal --quiet
   #wal -e ./wallpapers/warburton.jpg
-  wget https://raw.githubusercontent.com/dylanaraps/pywal/master/pywal/colorschemes/dark/gruvbox.json -O /tmp/gruvbox.json
-  wal --theme /tmp/gruvbox.json
+  wget https://raw.githubusercontent.com/dylanaraps/pywal/master/pywal/colorschemes/dark/gruvbox.json -O ~/.cache/wal/schemes/gruvbox.json
+  wal --theme ~/.cache/wal/schemes/gruvbox.json
   echo -e "\e[92mINFO\e[0m Finished installing pywal, and set theme!"
 }
 

@@ -15,6 +15,18 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
+exec_always --no-startup-id feh --bg-fill wallpapers/gruv.png
+exec_always --no-startup-id wal -R
+
+# fix some intellij windows
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [class="^jetbrains-.+"][window_type=dialog] floating enable
+# and some more focus bullshit
+focus_follows_mouse no
+
+## Enable titlebar for Thunderbird
+for_window [class="Thunderbird"] border normal
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -32,6 +44,9 @@ gaps outer 10
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Start udiskie
+exec --no-startup-id udiskie -s
 
 # Start polybar
 exec --no-startup-id $HOME/.config/polybar/launch.sh
@@ -59,7 +74,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -ctrl intel_backlight -dec 15
 bindsym XF86PowerOff exec --no-startup-id $HOME/.config/polybar/scripts/sysmenu
 
 # Take screenshots with Ctrl+PrtSc
-bindsym Control+Print exec ~/bin/elixiremanager.sh
+bindsym Control+Print exec ~/bin/screenie
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
